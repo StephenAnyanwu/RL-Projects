@@ -3,8 +3,8 @@ import numpy as np
 
 '''
 In this RL porject, the agent randomly chooses a targeted location while we choose a starting location in an input prompt for the agent and the 
-agent returns an optimal route to the targeted location in a list. opyimal route is return if the locations (both starting and targeted) are 
-situated in the environment.
+agent returns an optimal route to the targeted location in a list. optimal route is return if the locations (both starting and targeted) are 
+situated in the environment. See " optimal_route_image1.png " file that contains the diagram description of the environment 
 '''
 
 gamma = 0.75 # discount factor
