@@ -1,13 +1,12 @@
 import numpy as np
 import random
 
-
-
 """
 A dog is left in an environment, he wants to rest in a particular location (L6) within that environment.
 The only option given for him to rest in that particular location is to go to that location and pick up 
 a dead rat and move it to another designated location then (L1) come back to that resting location and have 
-his rest.
+his rest. 
+See image in optimal_route_image2.png " file for image description of the environment.
 """
 
 R = np.array([[[-1,-1,-1,-1,0,-1],
