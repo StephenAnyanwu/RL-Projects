@@ -2,7 +2,9 @@ import numpy as np
 
 '''
 This code returns a list optimal route taken for an agent to get to a targeted location when 
-we input the start location and the end location. See "optimal_route_image2" file for the image 
+we input the start location and the end location. 
+
+See "optimal_route_image2" file in Image repository for the image 
 description of the environment.
 '''
 
@@ -77,6 +79,3 @@ print("")
 
 print(optimal_route("L2", "L1"))
     
-
-
-
