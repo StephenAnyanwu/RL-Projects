@@ -6,7 +6,7 @@ A dog is left in an environment, he wants to rest in a particular location (L6) 
 The only option given for him to rest in that particular location is to go to that location and pick up 
 a dead rat and move it to another designated location then (L1) come back to that resting location and have 
 his rest. 
-See image in optimal_route_image2.png " file for image description of the environment.
+See image in optimal_route_image2.png " in Images repository for image description of the environment.
 """
 
 R = np.array([[[-1,-1,-1,-1,0,-1],
@@ -150,8 +150,3 @@ else:
             print(f"Route taken: {optimal_policy}")
             print("")
             
-
-
-        
-
-
