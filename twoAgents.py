@@ -12,6 +12,7 @@ optimal route.
 Any agent closer to the pick up location will perform the duty while taking the optimal routes. 
 If both agents are placed in the same location (not the pick up location) or if their respective reward values to pickup location are equal, 
 both are randomly selected to perform the duty.
+See TwoAgent.PNG in Images repository for diagram description of the environment.
 '''
 
 
@@ -142,7 +143,9 @@ class TWoAgents:
         if agent_2_loc not in location_to_state:
             return (f"Error: Agent 1 location {agent_1_loc} not in the environment.")
         Q = self.trained_Q()
-
+        
+        ## Pick up  
+          
         # Agent 1 optimal route to pick up location
         initial_state = location_to_state[agent_1_loc]
         agent_1_route_to_pickup = [agent_1_loc]
@@ -292,9 +295,6 @@ class TWoAgents:
             agent_2_duty = f"Agent 2 optimal route taken to pick up item in location {self.pickup_loc}: {agent_2_route_to_pickup} \nOptimal route taken to drop off item in location {drop_off_location}: {drop_off_route}"  
             return (f"{report}\n{agent_2_duty}")
 
-        
-        
-
-pickup_loc =TWoAgents("L18")
-perform = pickup_loc.perform_duty("L18", "L1")
+pickup =TWoAgents("L10")
+perform = pickup.perform_duty("L18", "L1")
 print(perform)
