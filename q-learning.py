@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 """
-A dog is left in an environment, he wants to rest in a particular location (L6) within that environment.
+In this project, a dog is left in an environment, he wants to rest in a particular location (L6) within that environment.
 The only option given for him to rest in that particular location is to go to that location and pick up 
 a dead rat and move it to another designated location (L1) then come back to that resting location and have 
 his rest. 
