@@ -12,8 +12,6 @@ optimal route.
 Any agent closer to the pick up location will perform the duty while taking the optimal routes. 
 If both agents are placed in the same location (not the pick up location) or if their respective reward values to pickup location are equal, 
 both are randomly selected to perform the duty.
-
-
 '''
 
 
