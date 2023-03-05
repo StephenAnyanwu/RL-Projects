@@ -6,7 +6,7 @@ import numpy as np
 states = ["A", "B", "C", "D", "E", "F", "G" ,"H", "I", "J", "K", "L", "M", "N"]
 
 #Reward of the states. The reward of terminal states D and M are 5 and -2 respectively.
-#The indexs of the rewards indexes correspond to states in the states list/
+#The indexes of the rewards correspond to the indexex states in the states list.
 rewards = [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0]
 
 #Possible actions in each state
@@ -32,16 +32,16 @@ Q_table = np.zeros([len(states), len(actions)]) #Initialize the Q_table to zeros
 
 #Initialized state values
 def init_s_values(states):
-  s_values = {}
-  for state in states:
-    if state == "D":
-      s_values[state] = 5
-      continue
-    if state == "M":
-      s_values[state] = -2
-      continue
-    s_values[state] = 0
-  return s_values
+    s_values = {}
+    for state in states:
+        if state == "D":
+           s_values[state] = 5
+           continue
+        if state == "M":
+           s_values[state] = -2
+           continue
+        s_values[state] = 0
+    return s_values
 init_state_values = init_s_values(states)
 #print(init_state_values)
       
@@ -217,11 +217,24 @@ for i in range(10000):
     s_a_avg_returns = average_G(returns_s_a)
     update_Q_table(s_a_avg_returns)
     improve_policy()
-    
-for state in init_state_values:
-  init_state_values[state] = np.max(Q_table)
+ 
+#Optimal state values
+def opimal_s_values(Q_table):
+    s_values = {}
+    for state in init_state_values:
+        if state == "D":
+        s_values[state] = 5
+        continue       
+    if state == "M":
+       s_values[state] = -2
+       continue
+    s_values[state] = np.max(Q_table)
+    return s_values
+optimal_state_value = opimal_s_values(Q_table)
 
 optimized_polcy = init_policy
+
+print(optimal_state_value)
 print(Q_table) #The converged Q(s,a)
 print(optimized_polcy)
 
