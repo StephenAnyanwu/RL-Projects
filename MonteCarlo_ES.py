@@ -1,11 +1,15 @@
 import random
 import numpy as np
 
+# States in the environment. State D and state M are the terminal state.
+# The agent wins if in state D and loses if in state M
 states = ["A", "B", "C", "D", "E", "F", "G" ,"H", "I", "J", "K", "L", "M", "N"]
 
+#Reward of the states. The reward of terminal states D and M are 5 and -2 respectively.
+#The indexs of the rewards indexes correspond to states in the states list/
 rewards = [0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, -2, 0]
 
-#Available possible actions in each state
+#Possible actions in each state
 actions = ["UP", "DOWN", "LEFT", "RIGHT"]
 
 # Neighboring states of the corresponding states in the states list (0 implies barrier).
@@ -26,6 +30,21 @@ max_steps = 12 #maximum steps per episode if terminal state not reached
 
 Q_table = np.zeros([len(states), len(actions)]) #Initialize the Q_table to zeros
 
+#Initialized state values
+def init_s_values(states):
+  s_values = {}
+  for state in states:
+    if state == "D":
+      s_values[state] = 5
+      continue
+    if state == "M":
+      s_values[state] = -2
+      continue
+    s_values[state] = 0
+  return s_values
+init_state_values = init_s_values(states)
+#print(init_state_values)
+      
 
 # Firstly randomly selected state
 def first_state(states):
@@ -198,6 +217,9 @@ for i in range(10000):
     s_a_avg_returns = average_G(returns_s_a)
     update_Q_table(s_a_avg_returns)
     improve_policy()
+    
+for state in init_state_values:
+  init_state_values[state] = np.max(Q_table)
 
 optimized_polcy = init_policy
 print(Q_table) #The converged Q(s,a)
