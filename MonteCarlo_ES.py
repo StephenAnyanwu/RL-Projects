@@ -34,12 +34,6 @@ Q_table = np.zeros([len(states), len(actions)]) #Initialize the Q_table to zeros
 def init_s_values(states):
     s_values = {}
     for state in states:
-        if state == "D":
-           s_values[state] = 5
-           continue
-        if state == "M":
-           s_values[state] = -2
-           continue
         s_values[state] = 0
     return s_values
 init_state_values = init_s_values(states)
@@ -222,13 +216,7 @@ for i in range(10000):
 def opimal_s_values(Q_table):
     s_values = {}
     for state in init_state_values:
-        if state == "D":
-        s_values[state] = 5
-        continue       
-    if state == "M":
-       s_values[state] = -2
-       continue
-    s_values[state] = np.max(Q_table)
+        s_values[state] = np.max(Q_table)
     return s_values
 optimal_state_value = opimal_s_values(Q_table)
 
